@@ -8,17 +8,29 @@
 .container{
     width: 100%;
     min-height: 100vh;
-    background: linear-gradient(135deg, #153677,#4e085f);
+    background: linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%);
     padding: 10px;
+    border-collapse: collapse;
 }
 
 .to_do-app{
     width: 100%;
     max-width: 540px;
-    background: #fff;
+    /* background: #fff; */
     margin: 100px auto 20px;
     padding: 40px 30px 70px;
-    border-radius: 10%
+    border-radius: 20px;
+    overflow: hidden;
+    perspective: 1px;
+
+
+    background: rgba(255, 255, 255, 0.463);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.96);
+
 }
 
 .to_do-app h2{
@@ -26,20 +38,23 @@
     display: flex;
     align-items: center;
     margin-bottom: 20px;
+    justify-content: center;
+    font-size: 35px;
+    
 }
 
-.to_do-app h2 img{
+/* .to_do-app h2 img{
     width: 30px;
-    margin-left: 10px;
-}
+    margin-left: 50px;
+
+} */
 .row{
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    background: #edeef0;
+    background: #fff;
     border-radius: 20px;
     padding-left: 20px;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 input{
@@ -49,15 +64,68 @@ input{
     background: transparent;
     padding: 10px;
     font-weight: 14px;
+    font-size: 22px;
 }
 
 button{
     border: none;
     outline: none;
     padding: 16px 50px;
-    background: #ff5945;
+    background: #e63946;
     color: #fff;
     font-size: 16px;
     cursor: pointer;
     border-radius: 20px;
+}
+
+ul li{
+    list-style: none;
+    font-size: 22px;
+    padding: 12px 8px 12px 50px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+    color: #002765;
+}
+
+ul li::before{
+    content: '';
+    position: absolute;
+    height: 36px;
+    width: 36px;
+    /* border-radius: 50%; */
+    background-image: url(images/plane.png);
+    background-size: cover;
+    background-position: center;
+    top: 8px;
+    left: 8px;
+
+}
+
+ul li.checked{
+    color: #555;
+    text-decoration: line-through;
+}
+
+ul li.checked::before{
+    background-image: url(images/heart.png);
+}
+
+
+ul li span{
+    position: absolute;
+    right: 0;
+    top: 5px;
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    color: #e63946;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+
+}
+
+ul li span:hover{
+    background: #edeef0;
 }
